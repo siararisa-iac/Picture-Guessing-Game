@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 249918585}
   - component: {fileID: 249918588}
   - component: {fileID: 249918587}
+  - component: {fileID: 249918589}
   m_Layer: 5
   m_Name: CaptionContainer
   m_TagString: Untagged
@@ -239,6 +240,20 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &249918589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249918582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6810d713e3c0ea249bbbe3a3d791c08e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _captionKeyPrefab: {fileID: -2642381106343759472, guid: 6baa2861a35ffbf4fa8954bfb396e72a, type: 3}
+  _captionContainer: {fileID: 249918583}
 --- !u!1 &413917660
 GameObject:
   m_ObjectHideFlags: 0
@@ -1024,6 +1039,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _levelImage: {fileID: 1790105182}
   _categoryText: {fileID: 1169432811}
+  _captionController: {fileID: 249918589}
 --- !u!1 &1389014848
 GameObject:
   m_ObjectHideFlags: 0

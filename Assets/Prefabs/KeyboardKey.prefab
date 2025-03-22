@@ -218,9 +218,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4133459079458477140}
-  - component: {fileID: 684227344916077597}
-  - component: {fileID: 5338441614486562998}
   - component: {fileID: 5964263437371877773}
+  - component: {fileID: 581641369582419791}
   m_Layer: 5
   m_Name: KeyboardKey
   m_TagString: Untagged
@@ -253,33 +252,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 82}
   m_SizeDelta: {x: 100, y: 115}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &684227344916077597
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4429600052546729147}
-  m_CullTransparentMesh: 1
---- !u!114 &5338441614486562998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4429600052546729147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6ef13d3a49a2ee4f88ae06711043dbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _letterText: {fileID: 9202095115715454397}
-  _button: {fileID: 3952969265314804943}
-  _defaultBackground: {fileID: 5820122290996765849}
-  _highlightedBackground: {fileID: 7964947139491690264}
-  _correctBackground: {fileID: 610244432232186179}
-  _wrongBackground: {fileID: 4867041158181953559}
-  _canvasGroup: {fileID: 5964263437371877773}
 --- !u!225 &5964263437371877773
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -292,6 +264,23 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &581641369582419791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4429600052546729147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66479d9b00555f74a893e3551bb15854, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _letterText: {fileID: 9202095115715454397}
+  _button: {fileID: 3952969265314804943}
+  _defaultTheme: {fileID: 5820122290996765849}
+  _correctTheme: {fileID: 610244432232186179}
+  _wrongTheme: {fileID: 4867041158181953559}
 --- !u!1 &4867041158181953559
 GameObject:
   m_ObjectHideFlags: 0

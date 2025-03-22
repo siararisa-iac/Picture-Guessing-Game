@@ -355,7 +355,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4939813276349242247}
   - component: {fileID: 3430629254324130725}
-  - component: {fileID: 1209964424252919086}
+  - component: {fileID: -2642381106343759472}
   m_Layer: 5
   m_Name: CaptionKey
   m_TagString: Untagged
@@ -396,7 +396,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5122881438759231400}
   m_CullTransparentMesh: 1
---- !u!114 &1209964424252919086
+--- !u!114 &-2642381106343759472
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -405,15 +405,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5122881438759231400}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c751b0b1476ad534fb0c3f03f529a66a, type: 3}
+  m_Script: {fileID: 11500000, guid: bcdccf981846a4b488f24f6db946ca5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _letterText: {fileID: 1998393938711557230}
   _button: {fileID: 3319795669858095433}
-  _defaultBackground: {fileID: 4849188635374191153}
-  _highlightedBackground: {fileID: 5913809331211983480}
-  _correctBackground: {fileID: 4791408686143593642}
-  _wrongBackground: {fileID: 351325076774576702}
+  _defaultTheme: {fileID: 4849188635374191153}
+  _correctTheme: {fileID: 4791408686143593642}
+  _wrongTheme: {fileID: 351325076774576702}
 --- !u!1 &5913809331211983480
 GameObject:
   m_ObjectHideFlags: 0
