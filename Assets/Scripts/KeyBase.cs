@@ -22,6 +22,11 @@ public class KeyBase : MonoBehaviour
 
     private Dictionary<KeyTheme, GameObject> _themeBackgrounds;
 
+    public void Initialize(string letter)
+    {
+        _letterText.text = letter;
+    }
+    
     protected virtual void Awake()
     {
         // Map out the matching gameobject to the corresponding theme enum

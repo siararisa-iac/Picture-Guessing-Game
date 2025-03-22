@@ -478,6 +478,7 @@ GameObject:
   - component: {fileID: 728544578}
   - component: {fileID: 728544577}
   - component: {fileID: 728544576}
+  - component: {fileID: 728544579}
   m_Layer: 5
   m_Name: KeysContainer
   m_TagString: Untagged
@@ -556,6 +557,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 728544574}
   m_CullTransparentMesh: 1
+--- !u!114 &728544579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728544574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da2f810fc257b294e8c1bb183f3a020d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _keyboardKeyPrefab: {fileID: 581641369582419791, guid: 47c8fe7487d0a16408e622f999a6c11e, type: 3}
+  _keyboardContainer: {fileID: 1389014849}
 --- !u!1 &768634839
 GameObject:
   m_ObjectHideFlags: 0
@@ -1040,6 +1055,7 @@ MonoBehaviour:
   _levelImage: {fileID: 1790105182}
   _categoryText: {fileID: 1169432811}
   _captionController: {fileID: 249918589}
+  _keyboardController: {fileID: 728544579}
 --- !u!1 &1389014848
 GameObject:
   m_ObjectHideFlags: 0
