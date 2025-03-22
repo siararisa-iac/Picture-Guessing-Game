@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,11 +22,9 @@ public class KeyBase : MonoBehaviour
 
     private Dictionary<KeyTheme, GameObject> _themeBackgrounds;
 
-    public void Initialize(string letter)
-    {
-        _letterText.text = letter;
-    }
-    
+    public KeyData Data {get; private set;}
+    public event Action<KeyData> OnClicked;
+
     protected virtual void Awake()
     {
         // Map out the matching gameobject to the corresponding theme enum
@@ -37,8 +35,15 @@ public class KeyBase : MonoBehaviour
             {KeyTheme.Wrong, _wrongTheme}
         };
         _button.onClick.AddListener(OnButtonClicked);
-        AwakeInternal();
     }
+    public void Initialize(KeyData keyData)
+    {
+        Data = keyData;
+        _letterText.text = keyData.Key;
+        InitializeInternal();
+    }
+
+   
     public void SetTheme(KeyTheme theme)
     {
         // Type safe
@@ -54,10 +59,11 @@ public class KeyBase : MonoBehaviour
         }
     }
 
-    protected virtual void AwakeInternal(){}
+    protected virtual void InitializeInternal(){}
     private void OnButtonClicked()
     {
         OnButtonClickedInternal();
+        OnClicked?.Invoke(Data);
     }
 
     protected virtual void OnButtonClickedInternal(){}

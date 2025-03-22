@@ -7,9 +7,11 @@ public class KeyboardController : MonoBehaviour
     [SerializeField] private KeyboardKey _keyboardKeyPrefab;
     [SerializeField] private RectTransform _keyboardContainer;
 
+    private List<KeyboardKey> _keys = new();
     // Assume our caption is "Big Ben"
     public void Initialize(string caption, int extraLetters = 3)
     {
+        _keys.Clear();
         var keyboardKeyStrings = new List<string>();
         // add each character of the caption to the list
         for(int i = 0; i < caption.Length; i++){
@@ -32,12 +34,28 @@ public class KeyboardController : MonoBehaviour
         for(int keyIndex = 0; keyIndex < keyboardKeyStrings.Count; keyIndex++)
         {
             var newKeyboardKey = Instantiate(_keyboardKeyPrefab, _keyboardContainer);
-            newKeyboardKey.Initialize(keyboardKeyStrings[keyIndex]);
+            var keyData = new KeyData
+                {
+                    PositionData = new KeyPositionData()
+                    {
+                        WordIndex = -1,
+                        KeyIndex = keyIndex    
+                    },
+                    Key = keyboardKeyStrings[keyIndex]
+                };
+                newKeyboardKey.Initialize(keyData);
+                newKeyboardKey.OnClicked += HandleKeyClicked;
+                _keys.Add(newKeyboardKey);
         }
     }
 
     private string GetRandomLetter()
     {
         return ((char)('A' + Random.Range(0, 26))).ToString();
+    }
+
+     private void HandleKeyClicked(KeyData data)
+    {
+        Debug.LogWarning($"Clicked [{data.PositionData.WordIndex}][{data.PositionData.KeyIndex}]: {data.Key}");
     }
 }

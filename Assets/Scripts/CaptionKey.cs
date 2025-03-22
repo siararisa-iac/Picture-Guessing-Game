@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CaptionKey : KeyBase
 {
-    protected override void AwakeInternal()
+    protected override void InitializeInternal()
     {
         SetTheme(KeyTheme.Default);
         SetLetterText(string.Empty);
