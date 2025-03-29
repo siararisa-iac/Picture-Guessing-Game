@@ -10,8 +10,9 @@ public class ScreenManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _categoryText;
     [SerializeField] private CaptionController _captionController;
     [SerializeField] private KeyboardController _keyboardController;
-    //TODO:
-    // Fill up the caption and the keyboard
+    
+    public KeyboardController KeyboardController => _keyboardController;
+    public CaptionController CaptionController => _captionController;
 
     public void LoadNewLevel(GameLevelData data)
     {

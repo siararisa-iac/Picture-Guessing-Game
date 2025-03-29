@@ -19,23 +19,24 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
+        // Setup the game logic
+        _gameLogic = new(_gameUi, this);
         // Setup the current level information
         LoadNewLevel();
-        // Setup the game logic
-       _gameLogic = new(_gameUi, this);
-       _gameLogic.LoadNewLevel(CurrentGameLevel);
     }
 
     public void LoadNewLevel()
     {
-       var currentLevelData = _levels[_currentLevelIndex];
-       // Build the current level by passing the constructor
-       _currentLevel = new GameLevelData(currentLevelData);
+        var currentLevelData = _levels[_currentLevelIndex];
+        // Build the current level by passing the constructor
+        _currentLevel = new GameLevelData(currentLevelData);
+        _gameLogic.LoadNewLevel(CurrentGameLevel);
     }
 
     public void MoveToNextLevel()
     {
         _currentLevelIndex++;
         LoadNewLevel();
+        Debug.Log("move to next level");
     }
 }

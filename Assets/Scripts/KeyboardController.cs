@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,10 +9,16 @@ public class KeyboardController : MonoBehaviour
     [SerializeField] private RectTransform _keyboardContainer;
 
     private List<KeyboardKey> _keys = new();
-    // Assume our caption is "Big Ben"
+    public event Action<KeyData> OnKeyClicked;
+
     public void Initialize(string caption, int extraLetters = 3)
     {
+        // Cleanup any past level references
+        foreach(var key in _keys){
+            Destroy(key.gameObject);
+        }
         _keys.Clear();
+        
         var keyboardKeyStrings = new List<string>();
         // add each character of the caption to the list
         for(int i = 0; i < caption.Length; i++){
@@ -51,11 +58,11 @@ public class KeyboardController : MonoBehaviour
 
     private string GetRandomLetter()
     {
-        return ((char)('A' + Random.Range(0, 26))).ToString();
+        return ((char)('A' + UnityEngine.Random.Range(0, 26))).ToString();
     }
 
      private void HandleKeyClicked(KeyData data)
     {
-        Debug.LogWarning($"Clicked [{data.PositionData.WordIndex}][{data.PositionData.KeyIndex}]: {data.Key}");
+       OnKeyClicked?.Invoke(data);
     }
 }

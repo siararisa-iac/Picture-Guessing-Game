@@ -17,6 +17,14 @@ public class CaptionController : MonoBehaviour
     // Assume our caption is "Big Ben"
     public void Initialize(List<string> wordList)
     {
+        // Clean up any reference from an old level
+        foreach(var word in _keysByWordIndex){
+            foreach(var key in word){
+                Destroy(key.gameObject);
+            }
+        }
+        _keysByWordIndex.Clear();
+
         //Instantiate the correct number of caption keys based on the word list provided
         // Iterate through the word count
         for(int wordIndex = 0; wordIndex < wordList.Count; wordIndex++)
@@ -50,5 +58,19 @@ public class CaptionController : MonoBehaviour
     private void HandleCaptionKeyClicked(KeyData data)
     {
         Debug.LogWarning($"Clicked [{data.PositionData.WordIndex}][{data.PositionData.KeyIndex}]: {data.Key}");
+    }
+
+    public void SetSpecificKeyText(KeyPositionData positionData, string text){
+        // Safe checks
+        if(_keysByWordIndex.Count <= positionData.WordIndex){
+            Debug.LogError("Invalid word index");
+            return;
+        }
+        if(_keysByWordIndex[positionData.WordIndex].Count <= positionData.KeyIndex){
+            Debug.LogError("Invalid letter index");
+            return;
+        }
+        var key = _keysByWordIndex[positionData.WordIndex][positionData.KeyIndex];
+        key.SetLetterText(text.ToUpper());
     }
 }
